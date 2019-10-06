@@ -18,7 +18,6 @@ namespace AzureKeyVaultDemo
 				.ConfigureWebHostDefaults(webBuilder =>
 				{
 					webBuilder.UseStartup<Startup>();
-
 				})
 				.ConfigureAppConfiguration((hostBuilderContext, configurationBuilder) =>
 				{
@@ -31,7 +30,7 @@ namespace AzureKeyVaultDemo
 					var configuration = configurationBuilder.Build();
 
 					//Retrieve config values from sources
-					string keyVaultEndpoint = configuration["KeyVaultEndpoint"];
+					string keyVaultEndpoint = configuration["AzureKeyVault:Endpoint"];
 					string clientId = configuration["AzureKeyVault:ClientId"];
 					string clientSecret = configuration["AzureKeyVault:ClientSecret"];
 
