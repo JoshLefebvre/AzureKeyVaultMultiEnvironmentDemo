@@ -13,4 +13,4 @@ In order for this code example to work you must create the appropriate azurekeyv
 }
 ```
 
-For further information please read the associated blog post:
+For further information please read the associated blog post: https://diligentprogrammer.com/2019/10/06/securing-a-multi-environment-application-with-azure-key-vault/
