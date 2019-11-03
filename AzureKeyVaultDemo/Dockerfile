@@ -8,10 +8,10 @@ WORKDIR /src
 COPY ["AzureKeyVaultDemo.csproj", "./"]
 RUN dotnet restore "./AzureKeyVaultDemo.csproj"
 COPY . .
-RUN dotnet build "AzureKeyVaultDemo.csproj" -c Release -o /app/build
+RUN dotnet build "./AzureKeyVaultDemo.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "AzureKeyVaultDemo.csproj" -c Release -o /app/publish
+RUN dotnet publish "./AzureKeyVaultDemo.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
