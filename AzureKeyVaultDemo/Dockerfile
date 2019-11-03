@@ -5,13 +5,13 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["AzureKeyVaultDemo.csproj", "./"]
+COPY ["./AzureKeyVaultDemo.csproj", "./"]
 RUN dotnet restore "./AzureKeyVaultDemo.csproj"
 COPY . .
 RUN dotnet build "AzureKeyVaultDemo.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "./AzureKeyVaultDemo.csproj" -c Release -o /app/publish
+RUN dotnet publish "AzureKeyVaultDemo.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
