@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: '549c752c-caf8-4b16-b06d-8f7e9f185270'
   imageRepository: 'azurekeyvaultmultienvironmentdemo'
   containerRegistry: 'devdpregistry.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)'
+  dockerfilePath: '$(Build.SourcesDirectory)/AzureKeyVaultDemo/Dockerfile'
   tag: '$(Build.BuildId)'
   vmImageName: 'ubuntu-latest'
 
