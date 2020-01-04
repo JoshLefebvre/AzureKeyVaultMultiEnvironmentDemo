@@ -13,11 +13,9 @@ variables:
   dockerRegistryServiceConnection: '549c752c-caf8-4b16-b06d-8f7e9f185270'
   imageRepository: 'azurekeyvaultmultienvironmentdemo'
   containerRegistry: 'devdpregistry.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/- task: Bash@3'
+  dockerfilePath: '$(Build.SourcesDirectory)'
   tag: '$(Build.BuildId)'
   vmImageName: 'ubuntu-latest'
-
-  
 
 stages:
 - stage: Build
