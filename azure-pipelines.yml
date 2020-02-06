@@ -32,6 +32,14 @@ stages:
         targetType: 'inline'
         script: >
           echo '{ "AzureKeyVault" : { "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' > ./AzureKeyVaultDemo/azurekeyvault.Development.json
+    - task: DownloadPackage@1
+      inputs:
+        packageType: 'nuget'
+        feed: '4240fc8b-76d0-4866-80f3-2309c3bb3101/0a65d615-0ffe-4e73-a51d-a8d478cd9f3a'
+        view: 
+        definition: '979038c4-3f1f-4f54-9ca5-a731528bfa8f'
+        version: '1.0.0'
+        downloadPath: '$(System.ArtifactsDirectory)'
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
