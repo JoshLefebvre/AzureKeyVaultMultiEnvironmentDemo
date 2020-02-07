@@ -31,7 +31,23 @@ stages:
       inputs:
         targetType: 'inline'
         script: >
-          echo '{ "AzureKeyVault" : { "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' > ./AzureKeyVaultDemo/azurekeyvault.Development.json
+          echo '{ "AzureKeyVault" : { "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' - task: Bash@3
+  inputs:
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo '<?xml version="1.0" encoding="utf-8"?><configuration>
+            <packageSources>
+              <add key="DiligentProgrammerFeed" value="https://lefewaresolutions.pkgs.visualstudio.com/DiligentProgrammer/_packaging/DiligentProgrammerFeed/nuget/v3/index.json" />
+            </packageSources>
+            <packageSourceCredentials>
+              <DiligentProgrammerFeed>
+                <add key="Username" value="$NugetUserName" />
+                <add key="ClearTextPassword" value="$NugetPassword" />
+              </DiligentProgrammerFeed>
+            </packageSourceCredentials>
+          </configuration>'' > ./AzureKeyVaultDemo/nuget.config
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
