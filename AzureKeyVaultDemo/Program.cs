@@ -23,7 +23,8 @@ namespace AzureKeyVaultDemo
 				{
 					//Registers adtitional sources to IConfigurationBuilder
 					configurationBuilder.SetBasePath(Directory.GetCurrentDirectory())
-						.AddJsonFile($"azurekeyvault.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", false, true);
+						.AddJsonFile($"azurekeyvault.json", true, true)
+						.AddJsonFile($"azurekeyvault.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", true, true);
 
 					//Builds IConfiguration with keys and values from the set of sources registered in IConfigurationBuilder
 					//and returns IConfigurationRoot with keys and values from the registered sources.
