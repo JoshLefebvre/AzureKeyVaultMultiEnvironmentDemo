@@ -32,7 +32,6 @@ stages:
         targetType: 'inline'
         script: >
           echo '{ "AzureKeyVault" : { "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' - task: Bash@3
-  inputs:
     - task: Bash@3
       inputs:
         targetType: 'inline'
