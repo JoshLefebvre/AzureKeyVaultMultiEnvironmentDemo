@@ -32,12 +32,6 @@ stages:
         targetType: 'inline'
         script: >
           echo '{ "AzureKeyVault" : { "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' > ./AzureKeyVaultDemo/azurekeyvault.Development.json
-    - task: NuGetCommand@2
-      inputs:
-        command: 'restore'
-        restoreSolution: '**/*.sln'
-        feedsToUse: 'select'
-        vstsFeed: '4240fc8b-76d0-4866-80f3-2309c3bb3101/0a65d615-0ffe-4e73-a51d-a8d478cd9f3a'
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
