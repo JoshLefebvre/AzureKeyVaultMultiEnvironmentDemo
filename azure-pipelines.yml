@@ -46,7 +46,7 @@ stages:
                 <add key="ClearTextPassword" value="$NugetPassword" />
               </DiligentProgrammerFeed>
             </packageSourceCredentials>
-          </configuration>'' > ./AzureKeyVaultDemo/nuget.config
+          </configuration>' > ./AzureKeyVaultDemo/nuget.config
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
