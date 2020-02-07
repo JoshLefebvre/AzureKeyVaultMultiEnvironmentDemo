@@ -342,3 +342,4 @@ healthchecksdb
 # KeyVault
 /AzureKeyVaultDemo/azurekeyvault.Production.json
 /AzureKeyVaultDemo/azurekeyvault.Development.json
+nuget.config
