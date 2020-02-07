@@ -5,6 +5,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
+COPY ["./nuget.config", "./"]
+COPY ["./azurekeyvault.json", "./"]
 COPY ["AzureKeyVaultDemo.csproj", "./"]
 RUN dotnet restore "./AzureKeyVaultDemo.csproj"
 COPY . .
