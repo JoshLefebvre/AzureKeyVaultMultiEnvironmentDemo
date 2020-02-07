@@ -31,14 +31,14 @@ stages:
       inputs:
         targetType: 'inline'
         script: >
-          echo '{ "AzureKeyVault" : { "Endpoint": "https://prd-dp-keyvault.vault.azure.net/", "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' > ./AzureKeyVaultDemo/azurekeyvault.json
+          echo '{ "AzureKeyVault" : { "Endpoint": "$(KeyVaultEndPoint)", "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' > ./AzureKeyVaultDemo/azurekeyvault.json
     - task: Bash@3
       inputs:
         targetType: 'inline'
         script: |
           echo '<?xml version="1.0" encoding="utf-8"?><configuration>
             <packageSources>
-              <add key="DiligentProgrammerFeed" value="https://lefewaresolutions.pkgs.visualstudio.com/DiligentProgrammer/_packaging/DiligentProgrammerFeed/nuget/v3/index.json" />
+              <add key="DiligentProgrammerFeed" value="$(PrivateNugetRepoURL)" />
             </packageSources>
             <packageSourceCredentials>
               <DiligentProgrammerFeed>
