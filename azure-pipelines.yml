@@ -31,7 +31,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: >
-          echo '{ "AzureKeyVault" : { "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' - task: Bash@3
+          echo '{ "AzureKeyVault" : { "ClientId" : "$(ClientId)" , "ClientSecret" : "$(ClientSecret)" } }' > ./AzureKeyVaultDemo/azurekeyvault.json
     - task: Bash@3
       inputs:
         targetType: 'inline'
