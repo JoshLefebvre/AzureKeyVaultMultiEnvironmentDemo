@@ -42,8 +42,8 @@ stages:
             </packageSources>
             <packageSourceCredentials>
               <DiligentProgrammerFeed>
-                <add key="Username" value="$NugetUserName" />
-                <add key="ClearTextPassword" value="$NugetPassword" />
+                <add key="Username" value="$(NugetUserName)" />
+                <add key="ClearTextPassword" value="$(NugetPassword)" />
               </DiligentProgrammerFeed>
             </packageSourceCredentials>
           </configuration>' > ./AzureKeyVaultDemo/nuget.config
